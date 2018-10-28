@@ -29,6 +29,10 @@ int main(int argc, char *argv[])
         printf("ERROR in usage\n");
         exit(0);
     }
+    /**
+     * sem_open : last 2 args are considered only if O_CREAT is used.
+     *            it'll be ignored if the named sem already exists even if O_CREAT is used.
+     */
     new_sem = sem_open(argv[optind], op_flags, 0666, init_count);
     sem_close(new_sem); //this will be implicity accomplished by return as well.
     return 0;
